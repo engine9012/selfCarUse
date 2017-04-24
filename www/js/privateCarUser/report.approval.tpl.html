@@ -1,0 +1,40 @@
+<ion-view view-title="报销单">
+    <ion-content>
+        <div class="nav-bar">
+            <img src="img/car/navbar.png" alt="">
+        </div>
+        <div class="report-item" ng-repeat="item in view.reportList" ng-click="goTo()">
+            <div class="title">
+                <span>{{item.code}}</span>
+                <span class="date">{{item.date}}</span>
+            </div>
+            <div class="content">
+                <span class="content-title">{{item.name}}</span>
+                <span class="status">{{item.status}}</span>
+            </div>
+            <div class="footer">
+                <span>{{item.useTime}}</span>
+                <span class="jquery">{{item.length}}</span>
+                <span class="money">{{item.total}}</span>
+            </div>
+        </div>
+        <div class="img-wrap">
+            <img src="img/car/expense_add.png" alt="">
+        </div>
+       <!-- <div class="report-item">
+            <div class="title">
+                <span>No.3894056004</span>
+                <span class="date">2017-04-01</span>
+            </div>
+            <div class="content">
+                <span class="content-title">私车公用报销单</span>
+                <span class="status">编辑中</span>
+            </div>
+            <div class="footer">
+                <span>2017年4月</span>
+                <span class="jquery">300km</span>
+                <span class="money">CNY 400.00</span>
+            </div>
+        </div>-->
+    </ion-content>
+</ion-view>

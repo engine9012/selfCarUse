@@ -1,0 +1,13 @@
+<ion-content>
+    <ion-list>
+        <!--<ion-list show-delete="true" can-swipe="true">-->
+        <ion-item ng-repeat="item in view.sheetList">
+            <div class="date">{{item.date}}</div>
+            <div class="journey">{{item.journey}}</div>
+            <div class="address"><span>{{item.start}}</span>－<span>{{item.end}}</span></div>
+            <!--<ion-option-button class="button-assertive">删除</ion-option-button>
+            <ion-option-button class="button-calm icon ion-edit">删除</ion-option-button>-->
+        </ion-item>
+    </ion-list>
+</ion-content>
+

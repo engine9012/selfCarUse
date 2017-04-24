@@ -1,0 +1,39 @@
+<ion-view view-title="私车公用报销单">
+    <ion-content>
+        <!--<div class="nav-bar">
+            <img src="img/car/chat.png" alt="">
+        </div>-->
+        <div class="total-data">
+            <div class="total-title">
+                2017年4月明细
+            </div>
+            <div class="total-detail">
+                <span>里程：300KM，CNY 2.00/km</span>
+                <span class="amount">总额：CNY600.00</span>
+            </div>
+        </div>
+        <div class="sheet-item" ng-repeat="item in view.sheetList">
+            <div class="divider">{{item.date}}</div>
+            <div class="sheet-content" ng-click="goTo('expense_detail')">
+                <img src="img/car/car.png" alt="">
+                <div class="title">
+                    <span>{{item.name}}</span>
+                    <span>{{item.lenght}}</span>
+                </div>
+
+                <p>{{item.start}}</p>
+                <p>{{item.end}}</p>
+            </div>
+        </div>
+        <div class="nav-bar" ng-if="view.content === 'passed'">
+            <img src="img/car/history.png" style="margin-top: 10px;">
+        </div>
+        <div class="approval-operations row" ng-if="view.content === 'passed'">
+            <button class="reject col-50" ng-click="goTo('report_expense')">驳回</button>
+            <button class="pass col-50" ng-click="goTo('report_expense_passed')">通过</button>
+        </div>
+        <div class="nav-bar" ng-if="view.content !== 'passed'">
+            <img src="img/car/history_passed.png" style="margin-top: 10px;">
+        </div>
+    </ion-content>
+</ion-view>

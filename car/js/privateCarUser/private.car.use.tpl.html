@@ -1,0 +1,49 @@
+<ion-view view-title="私车公用" >
+    <ion-nav-buttons side="left">
+        <button class="button back-button buttons  button-clear header-item" ng-click="goBack()"  style="color: #0092da;">
+            <i class="icon ion-ios-arrow-back"></i>&nbsp;返回
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <a ng-click="operations.goTo('private_car_settings')">
+            <img class="dashboard-message-icon" src="img/car/settings.png"/>
+            <!--<div class="message-tips" ng-if="hasMessageTips"></div>-->
+        </a>
+        <a ng-click="showPop()">
+            <img class="dashboard-message-icon" src="img/car/message.png"/>
+           <!-- <div class="message-tips" ng-if="hasMessageTips"></div>-->
+        </a>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="postion-wrap">
+            <img class="starter" src="img/car/starter.png">
+            <img class="line" src="img/car/line.png">
+            <img class="dest" src="img/car/dest.png">
+            <div class="start-title">上海金环商务花园16号楼</div>
+            <div class="reference-journey" ng-if="view.dest">参考历程4.1公里</div>
+            <div class="end-title" ng-if="!view.dest" ng-click="operations.addDest()">请添加目的地</div>
+            <div class="end-title dest-title" ng-if="view.dest" ng-click="operations.addDest()">{{view.dest}}</div>
+        </div>
+        <div class="map" ng-if="view.dest">
+            <img src="img/car/map.png" alt="">
+        </div>
+        <div class="btn-group" ng-if="view.dest">
+            <div class="runing" ng-if="view.status === 1">
+                <img src="img/car/runing.png" alt="">
+                <span>行驶中...</span>
+            </div>
+            <div class="over" ng-if="view.status === 2">
+                <div class="title">里程</div>
+                <input type="text" class="value" value="4.1">
+            </div>
+            <button class="begining" ng-click="operations.checkStatus('running')" ng-if="view.status === 0">出发</button>
+            <button class="begining" ng-click="operations.checkStatus('over')" ng-if="view.status === 1">到达</button>
+            <button class="begining" ng-click="operations.checkStatus('overd')" ng-if=" view.status === 2">到达</button>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="row">
+        <button class="button col-50" ng-click="goTo('report_approval')">报销</button>
+        <button class="button col-50" ng-click="goTo('report_expense')">审批</button>
+        <button class="button"></button>
+    </ion-footer-bar>
+</ion-view>

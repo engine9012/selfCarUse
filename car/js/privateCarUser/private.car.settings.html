@@ -1,0 +1,16 @@
+<ion-view view-title="私车公用设置">
+    <ion-nav-buttons side="right">
+        <a ng-click="view.goTo('app.erv_notification')">
+            <img class="dashboard-message-icon" src="img/car/add.png"/>
+        </a>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="divider">规划版本</div>
+        <ion-list>
+            <ion-item class="version-item" ng-repeat="item in view.versions" ng-click="view.goTo()">
+                <span>生效时间</span>
+                <span class="apply-date">{{item.date}}</span>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

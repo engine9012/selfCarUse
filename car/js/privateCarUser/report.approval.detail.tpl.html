@@ -1,0 +1,30 @@
+<ion-view view-title="私车公用报销单">
+    <ion-content>
+        <div class="nav-bar">
+            <img src="img/car/chat.png" alt="">
+        </div>
+        <div class="total-data">
+            <div class="total-title">
+                2017年4月明细
+            </div>
+            <div class="total-detail">
+                <span>里程：300KM，CNY 2.00/km</span>
+                <span class="amount">总额：CNY600.00</span>
+            </div>
+        </div>
+        <div class="sheet-item" ng-repeat="item in view.sheetList">
+            <div class="divider">{{item.date}}</div>
+            <div class="sheet-content" ng-click="goTo('expense_detail')">
+                <img src="img/car/car.png" alt="">
+                <div class="title">
+                    <span>{{item.name}}</span>
+                    <span>{{item.lenght}}</span>
+                </div>
+
+                <p>{{item.start}}</p>
+                <p>{{item.end}}</p>
+            </div>
+        </div>
+        <button class="post-btn" ng-click="goTo('report_expense')">5月5日可提交</button>
+    </ion-content>
+</ion-view>

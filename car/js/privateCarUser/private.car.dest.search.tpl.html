@@ -1,0 +1,31 @@
+<ion-modal-view class="arrange-journey">
+    <ion-header-bar align-title="left" class="bar-positive">
+        <div class="buttons">
+            <button class="header-item back-button button-icon icon ion-ios-arrow-left" ng-click="operations.closeModal()"></button>
+        </div>
+        <h1 class="title" ng-if="!view.showSearchBtn">
+            <input type="text" class="search-wrap" placeholder="搜索" ng-focus="view.showSearchBtn = true" ng-blur="view.showSearchBtn = false">
+            <img src="img/car/search.png" alt="">
+        </h1>
+        <!--<h1 class="title" ng-if="view.showSearchBtn">
+            <input type="text" class="search-wrap" placeholder="搜索" ng-blur="view.showSearchBtn = false">
+            <button class="">搜索</button>
+            <img src="img/car/search.png" alt="">
+        </h1>-->
+        <h1 class="title title-focus" ng-if="view.showSearchBtn">
+            <input type="text" class="search-wrap" placeholder="搜索" ng-focus="view.showSearchBtn = true"  ng-blur="view.showSearchBtn = false">
+            <button class="search-btn" ng-click="operations.search()">搜索</button>
+            <img src="img/car/search.png" alt="">
+        </h1>
+    </ion-header-bar>
+    <ion-content class="content-wrap">
+        <div class="divider">历史地点</div>
+        <ion-list>
+            <ion-item class="history-item" ng-repeat="item in view.historyAddress" ng-click="operations.search()">
+                <img src="img/car/address.png" alt="">
+                <span>{{item.address}}</span>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>
+
