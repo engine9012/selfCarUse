@@ -52,4 +52,7 @@ angular.module('starter')
                 $state.go('report_expense_detail', {arg: arg});
             }, 500);
         }
+        $scope.backToHomepage = function () {
+            $state.go('private_car_for_public');
+        }
     });

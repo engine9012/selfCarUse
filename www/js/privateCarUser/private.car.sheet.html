@@ -1,13 +1,34 @@
-<ion-content>
+<!--<ion-content>
     <ion-list>
-        <!--<ion-list show-delete="true" can-swipe="true">-->
+        &lt;!&ndash;<ion-list show-delete="true" can-swipe="true">&ndash;&gt;
         <ion-item ng-repeat="item in view.sheetList">
             <div class="date">{{item.date}}</div>
             <div class="journey">{{item.journey}}</div>
             <div class="address"><span>{{item.start}}</span>－<span>{{item.end}}</span></div>
-            <!--<ion-option-button class="button-assertive">删除</ion-option-button>
-            <ion-option-button class="button-calm icon ion-edit">删除</ion-option-button>-->
+            &lt;!&ndash;<ion-option-button class="button-assertive">删除</ion-option-button>
+            <ion-option-button class="button-calm icon ion-edit">删除</ion-option-button>&ndash;&gt;
         </ion-item>
     </ion-list>
-</ion-content>
+</ion-content>-->
 
+<ion-modal-view class="sheet-pop">
+    <!--<ion-header-bar align-title="left" class="bar-positive">
+    </ion-header-bar>-->
+    <ion-content>
+        <div class="pop-title">
+            <img src="img/car/title.png">
+        </div>
+        <ion-list class="pop-body" can-swipe="true">
+            <ion-item ng-repeat="item in view.sheetList" ng-click="closeAndEnterExpense()">
+                <div class="date">{{item.date}}</div>
+                <div class="journey">{{item.journey}}</div>
+                <div class="address"><span>{{item.start}}</span>－<span>{{item.end}}</span></div>
+                <ion-option-button class="button-assertive" ng-click="delete($index)">删除</ion-option-button>
+            </ion-item>
+        </ion-list>
+        <div class="close-wrap" ng-click="operations.closeExpenseList()">
+            <!--<button class="close-btn">关闭</button>-->
+            <img src="img/car/close.png" alt="">
+        </div>
+    </ion-content>
+</ion-modal-view>

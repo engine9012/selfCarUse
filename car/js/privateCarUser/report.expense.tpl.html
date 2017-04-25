@@ -4,7 +4,7 @@
             <img ng-if="view.content !== 'passed'" src="img/car/approvebar.png" alt="">
             <img ng-if="view.content === 'passed'" src="img/car/passed.png" alt="">
         </div>
-        <div class="expense-item"  ng-if="view.content === 'passed'" ng-repeat="item in view.reportList" ng-click="goTo('create')">
+        <div class="expense-item"  ng-if="view.content === 'passed'" ng-repeat="item in view.approveList" ng-click="goTo('create')">
             <div class="title">
                 <span>{{item.code}}</span>
                 <span class="date">{{item.date}}</span>

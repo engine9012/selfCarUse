@@ -1,4 +1,4 @@
-<ion-view view-title="私车公用" >
+<ion-view view-title="私车公用" hide-back-button="true">
     <ion-nav-buttons side="left">
         <button class="button back-button buttons  button-clear header-item" ng-click="goBack()"  style="color: #0092da;">
             <i class="icon ion-ios-arrow-back"></i>&nbsp;返回
@@ -9,7 +9,7 @@
             <img class="dashboard-message-icon" src="img/car/settings.png"/>
             <!--<div class="message-tips" ng-if="hasMessageTips"></div>-->
         </a>
-        <a ng-click="showPop()">
+        <a ng-click="operations.showExpenseList()">
             <img class="dashboard-message-icon" src="img/car/message.png"/>
            <!-- <div class="message-tips" ng-if="hasMessageTips"></div>-->
         </a>

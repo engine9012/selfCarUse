@@ -81,10 +81,20 @@ angular.module('starter')
               },{
                   date: '2017-04-05',
                   journey: '28.9km',
-                  start: '上海市真北路958号天地科技广场',
+                  start: '上海市真北路956号天地科技广场',
                   end: '上海市淮海中路中环广…'
               }
-
+              ,{
+                  date: '2017-04-08',
+                  journey: '38.5km',
+                  start: '上海市真北路958号天地科技广场',
+                  end: '上海市天地科技广场…'
+              },{
+                  date: '2017-04-07',
+                  journey: '41.9km',
+                  start: '上海市真北路966号天地科技广场',
+                  end: '上海市天地科技广场中环广…'
+              }
           ]
       }
 
@@ -96,8 +106,15 @@ angular.module('starter')
           $scope.selectCity = modal;
       });
 
+      $ionicModal.fromTemplateUrl('js/privateCarUser/private.car.sheet.html', {
+          scope: $scope,
+          animation: 'slide-in-up'
+      }).then(function (modal) {
+          $scope.expenseList = modal;
+      });
+
       //弹出框，行程列表
-      $scope.showPop = function () {
+      /*$scope.showPop = function () {
           $scope.sheetPopup = $ionicPopup.show({
               cssClass: 'sheet-pop',
               title: '<img src="img/car/title.png">',
@@ -112,7 +129,7 @@ angular.module('starter')
                   $scope.view.dest = null;
                   // $state.go('private_car_for_public')
               })
-      }
+      }*/
 
       $scope.show = function() {
           $ionicLoading.show({
@@ -124,6 +141,16 @@ angular.module('starter')
       };
 
       $scope.operations = {
+          showExpenseList: function () {
+              $scope.expenseList.show();
+          },
+          closeExpenseList: function () {
+              $scope.view.showSearchBtn =  false;
+              $scope.view.showSearchResult = false;
+              $scope.view.status = 0;
+              $scope.view.dest = null;
+              $scope.expenseList.hide();
+          },
           addDest: function () {
               $scope.selectCity.show();
           },
@@ -136,7 +163,7 @@ angular.module('starter')
                   $scope.operations.closeModal();
                   $scope.hide();
                   $state.go('private_car_address_certain');
-              },1500);
+              },1000);
           },
           checkStatus: function (status) {
               if(status === 'running'){
@@ -154,7 +181,7 @@ angular.module('starter')
                               text: '<b>确定</b>',
                               type: 'button-positive',
                               onTap: function(e) {
-                                    $scope.showPop()
+                                  $scope.operations.showExpenseList();
                               }
                           },
                       ]
@@ -172,6 +199,13 @@ angular.module('starter')
               $rootScope.hide();
               $state.go(url);
           }, 500);
+      }
+      $scope.closeAndEnterExpense = function () {
+          $scope.operations.closeExpenseList();
+          $state.go('expense_detail');
+      }
+      $scope.delete = function (index) {
+          $scope.view.sheetList.splice(index, 1);
       }
   }])
 ;
